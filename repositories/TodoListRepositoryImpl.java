@@ -22,7 +22,7 @@ public class TodoListRepositoryImpl implements TodoListRepository {
             }
         }
     }
-    private static void resizeArrayIfFull() {
+    private void resizeArrayIfFull() {
         // cek whether todos is full
         Boolean isFull = true;
         isFull = isArrayFull(isFull);
@@ -33,7 +33,7 @@ public class TodoListRepositoryImpl implements TodoListRepository {
         }
     }
 
-    private static void resizeArrayToTwoTimesBigger() {
+    private void resizeArrayToTwoTimesBigger() {
         TodoList[] temp = todos;
         todos = new TodoList[todos.length * 2];
         for (int i = 0; i < temp.length; i++) {
@@ -41,7 +41,7 @@ public class TodoListRepositoryImpl implements TodoListRepository {
         }
     }
 
-    private static Boolean isArrayFull(Boolean isFull) {
+    private Boolean isArrayFull(Boolean isFull) {
         for (int i = 0; i < todos.length; i++) {
             if (todos[i] == null) {
                 isFull = false;
@@ -52,7 +52,7 @@ public class TodoListRepositoryImpl implements TodoListRepository {
     }
 
     @Override
-    public Boolean remove(Integer number) {
+    public Boolean remove(final Integer number) {
         if (isSelectedTodoNotValid(number)) {
             return false;
         }
@@ -87,7 +87,7 @@ public class TodoListRepositoryImpl implements TodoListRepository {
     }
 
     @Override
-    public Boolean edit(TodoList todoList) {
+    public Boolean edit(final TodoList todoList) {
         if (isSelectedTodoNotValid(todoList.getId())) {
             return false;
         }

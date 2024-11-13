@@ -13,7 +13,7 @@ public class TodoListTerminalView implements TodoListView{
         this.todoListService = todoListService;
     }
 
-    public static String input(String info) {
+    public String input(String info) {
         System.out.print(info + " : ");
         var data = scanner.nextLine();
         return data;
